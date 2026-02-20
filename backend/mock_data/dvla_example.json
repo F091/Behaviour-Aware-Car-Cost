@@ -1,0 +1,30 @@
+{
+  "AB21ABC": {
+    "registration": "AB21ABC",
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2021,
+    "fuel_type": "Petrol"
+  },
+  "CD22CDE": {
+    "registration": "CD22CDE",
+    "make": "Ford",
+    "model": "Focus",
+    "year": 2022,
+    "fuel_type": "Diesel"
+  },
+  "EF23EFG": {
+    "registration": "EF23EFG",
+    "make": "Honda",
+    "model": "Civic",
+    "year": 2020,
+    "fuel_type": "Petrol"
+  },
+  "GH24GHI": {
+    "registration": "GH24GHI",
+    "make": "Toyota",
+    "model": "Prius",
+    "year": 2024,
+    "fuel_type": "Hybrid"
+  }
+}
