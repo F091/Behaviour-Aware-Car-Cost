@@ -4,27 +4,31 @@
     "make": "Toyota",
     "model": "Corolla",
     "year": 2021,
-    "fuel_type": "Petrol"
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1798
   },
   "CD22CDE": {
     "registration": "CD22CDE",
     "make": "Ford",
     "model": "Focus",
     "year": 2022,
-    "fuel_type": "Diesel"
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1995
   },
   "EF23EFG": {
     "registration": "EF23EFG",
     "make": "Honda",
     "model": "Civic",
     "year": 2020,
-    "fuel_type": "Petrol"
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1498
   },
   "GH24GHI": {
     "registration": "GH24GHI",
     "make": "Toyota",
     "model": "Prius",
     "year": 2024,
-    "fuel_type": "Hybrid"
+    "fuel_type": "Hybrid",
+    "engine_capacity_cc": 1798
   }
 }
