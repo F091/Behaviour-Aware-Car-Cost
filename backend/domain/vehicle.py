@@ -17,3 +17,4 @@ class Vehicle(BaseModel):
     model: str         # e.g. "Focus"
     year: int          # e.g. 2021
     fuel_type: str     # One of: "Petrol", "Diesel", "Hybrid"
+    engine_capacity_cc: int    # Engine size in cubic centimetres (cc), e.g. 1598
