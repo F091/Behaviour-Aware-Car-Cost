@@ -1,11 +1,9 @@
 # backend/app/main.py
 
-import json
-from pathlib import Path
 from fastapi import FastAPI, HTTPException
-
-# Import the Vehicle model from the domain layer
-from domain.vehicle import Vehicle
+from pydantic import BaseModel
+from backend.services.vehicle_service import get_vehicle
+from backend.services.cost_engine import estimate_monthly_fuel_cost
 
 
 # Create the FastAPI application instance
@@ -17,43 +15,28 @@ app = FastAPI(
 )
 
 
-def load_mock_dvla_data():
+class FuelCostEstimateResponse(BaseModel):
     """
-    Load vehicle data from the mock JSON file.
+    Response model for the fuel cost estimation endpoint.
     
-    This function reads the dvla_example.json file and returns it as a dictionary.
-    In a real system, this would call the actual DVLA API. For now, will use
-    mock data stored in a JSON file.
-    
-    Returns:
-        A dictionary where keys are registration numbers and values are vehicle details.
+    This contains the vehicle details along with the estimated monthly fuel cost.
     """
-    # Build the path to the mock data file
-    # Path(__file__) gives us the location of this file (main.py)
-    # .parent goes up one folder (to backend/app/)
-    # .parent again goes up to backend/
-    # Then we navigate to mock_data/dvla_example.json
-    mock_data_path = Path(__file__).parent.parent / "mock_data" / "dvla_example.json"
-    
-    # Open and read the JSON file
-    with open(mock_data_path, "r") as file:
-        data = json.load(file)
-    
-    return data
+    registration: str
+    make: str
+    model: str
+    fuel_type: str
+    engine_capacity_cc: int
+    estimated_monthly_fuel_cost: float
 
 
-# Load the mock data once when the app starts
-# We store it in a variable so we don't have to read the file every time someone makes a request
-mock_dvla_data = load_mock_dvla_data()
-
-
-@app.get("/vehicle/{registration}", response_model=Vehicle)
-def get_vehicle(registration: str):
+@app.get("/vehicle/{registration}")
+def get_vehicle_endpoint(registration: str):
     """
     Retrieve vehicle details by registration number.
     
-    This endpoint takes a registration number as input, looks it up in the mock data,
-    and returns the vehicle details. If the registration is not found, it returns a 404 error.
+    This endpoint takes a registration number as input, calls the vehicle service
+    to look up the vehicle, and returns the vehicle details. If the registration
+    is not found, it returns a 404 error.
     
     Args:
         registration: The vehicle registration number (e.g., "AB21ABC")
@@ -62,26 +45,73 @@ def get_vehicle(registration: str):
         A Vehicle object with the vehicle's details (make, model, year, fuel_type, etc.)
         
     Raises:
-        HTTPException: A 404 error if the registration is not found in the mock data
+        HTTPException: A 404 error if the registration is not found
     """
-    # Convert the registration to uppercase for consistent lookup
-    # This makes it so "ab21abc" and "AB21ABC" both work
-    registration_upper = registration.upper()
+    try:
+        # Call the service to look up the vehicle
+        vehicle = get_vehicle(registration)
+        return vehicle
     
-    # Check if the registration exists in our mock data
-    if registration_upper not in mock_dvla_data:
-        # If it doesn't exist, raise a 404 error
+    except ValueError:
+        # If the vehicle is not found, return a 404 error
+        raise HTTPException(
+            status_code=404,
+            detail=f"Vehicle with registration '{registration}' not found"
+        )
+
+
+@app.get("/estimate/fuel/{registration}", response_model=FuelCostEstimateResponse)
+def estimate_fuel_cost(
+    registration: str,
+    annual_mileage: int,
+    fuel_price_per_litre: float
+):
+    """
+    Estimate the monthly fuel cost for a vehicle.
+    
+    This endpoint takes a vehicle registration, annual mileage, and fuel price,
+    then calculates the estimated monthly fuel cost based on the vehicle's
+    fuel type and engine size.
+    
+    Args:
+        registration: The vehicle registration number (e.g., "AB21ABC")
+        annual_mileage: The expected annual mileage in miles
+        fuel_price_per_litre: The current fuel price in pounds per litre
+        
+    Returns:
+        A response object containing vehicle details and the estimated monthly fuel cost
+        
+    Raises:
+        HTTPException: A 404 error if the registration is not found
+    """
+    try:
+        # Call the service to look up the vehicle
+        vehicle = get_vehicle(registration)
+    
+    except ValueError:
+        # If the vehicle is not found, return a 404 error
         raise HTTPException(
             status_code=404,
             detail=f"Vehicle with registration '{registration}' not found"
         )
     
-    # Get the vehicle data from the dictionary
-    vehicle_data = mock_dvla_data[registration_upper]
+    # Calculate the estimated monthly fuel cost using the cost engine
+    estimated_cost = estimate_monthly_fuel_cost(
+        fuel_type=vehicle.fuel_type,
+        engine_capacity_cc=vehicle.engine_capacity_cc,
+        annual_mileage=annual_mileage,
+        fuel_price_per_litre=fuel_price_per_litre
+    )
     
-    # Create and return a Vehicle object from the data
-    # Pydantic will automatically validate that the data matches the Vehicle model
-    return Vehicle(**vehicle_data)
+    # Build and return the response
+    return FuelCostEstimateResponse(
+        registration=vehicle.registration,
+        make=vehicle.make,
+        model=vehicle.model,
+        fuel_type=vehicle.fuel_type,
+        engine_capacity_cc=vehicle.engine_capacity_cc,
+        estimated_monthly_fuel_cost=estimated_cost
+    )
 
 
 @app.get("/health")
@@ -98,7 +128,7 @@ def health_check():
     return {"status": "ok"}
 
 
-# This allows the app to be run directly with: python main.py
+# This allows the app to be run directly with: python -m app.main
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
