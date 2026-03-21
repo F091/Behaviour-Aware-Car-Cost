@@ -1,0 +1,35 @@
+{
+  "service": {
+    "interval_months": 12,
+    "base_cost": 180
+  },
+  "tyres": {
+    "base_interval_miles": 25000,
+    "base_cost": 320
+  },
+  "brakes": {
+    "base_interval_miles": 30000,
+    "base_cost": 280
+  },
+  "major_service": {
+    "base_interval_miles": 60000,
+    "base_cost": 500
+  },
+  "engine_cost_multipliers": {
+    "0-1400": 1.0,
+    "1400-2000": 1.15,
+    "2000-3000": 1.35,
+    "3000+": 1.6
+  },
+  "driving_style_wear_multipliers": {
+    "calm": 1.0,
+    "normal": 1.1,
+    "brisk": 1.25
+  },
+  "short_trip_wear_multipliers": {
+    "low": 1.0,
+    "medium": 1.05,
+    "high": 1.15
+  },
+  "city_ratio_brake_multiplier_max": 1.2
+}
