@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRIVEWISE - Car Ownership Cost Estimator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Landing Screen -->
+    <section id="landing-screen" class="screen active">
+        <div class="landing-content">
+            <div class="car-animation">
+                <div class="car"></div>
+            </div>
+            <h1>DRIVEWISE</h1>
+            <p class="tagline">Understand the true cost of your car</p>
+            <button id="enter-btn" class="enter-btn">Enter</button>
+        </div>
+    </section>
+
+    <!-- Form Screen -->
+    <section id="form-screen" class="screen">
+        <div class="container">
+            <header>
+                <h1>DRIVEWISE</h1>
+                <p>Estimate your monthly fuel and maintenance costs based on your vehicle and driving habits</p>
+            </header>
+
+            <main>
+                <!-- Input Form Section -->
+                <section class="input-section">
+                    <h2>Vehicle Details</h2>
+                    
+                    <div class="form-group">
+                        <label for="registration">Vehicle Registration</label>
+                        <input 
+                            type="text" 
+                            id="registration" 
+                            placeholder="e.g. AB21ABC"
+                            maxlength="7"
+                        >
+                        <small>Enter your vehicle's registration number</small>
+                    </div>
+
+                    <h2 style="margin-top: 2rem;">Driving Profile</h2>
+
+                    <div class="form-group">
+                        <label for="annual-mileage">Annual Mileage (miles)</label>
+                        <input 
+                            type="number" 
+                            id="annual-mileage" 
+                            placeholder="e.g. 10000"
+                            min="0"
+                        >
+                        <small>Estimated miles you drive per year</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fuel-price">Fuel Price (£ per litre)</label>
+                        <input 
+                            type="number" 
+                            id="fuel-price" 
+                            placeholder="e.g. 1.45"
+                            min="0"
+                            step="0.01"
+                        >
+                        <small>Current petrol/diesel price at your local station</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city-ratio">City Driving: <span id="city-value">0</span>%</label>
+                        <input 
+                            type="range" 
+                            id="city-ratio" 
+                            min="0" 
+                            max="100" 
+                            value="0"
+                        >
+                        <small>0% = highway only, 100% = city only</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Driving Style</label>
+                        <div class="button-group">
+                            <button class="style-btn" data-style="calm">Calm</button>
+                            <button class="style-btn active" data-style="normal">Normal</button>
+                            <button class="style-btn" data-style="brisk">Brisk</button>
+                        </div>
+                        <small>Your typical acceleration and speed patterns</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="short-trips">Short Trip Frequency</label>
+                        <select id="short-trips">
+                            <option value="low">Low - mostly longer journeys</option>
+                            <option value="medium">Medium - mix of short and long trips</option>
+                            <option value="high">High - frequent short trips</option>
+                        </select>
+                        <small>How often you do short journeys (under 5 miles)</small>
+                    </div>
+
+                    <button id="calculate-btn" class="calculate-btn">Calculate Cost</button>
+                    <div id="error-message" class="error-message"></div>
+                </section>
+            </main>
+
+            <footer>
+                <p>DRIVEWISE | University Project</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Results Screen -->
+    <section id="results-screen" class="screen">
+        <div class="results-container">
+            <header class="results-header">
+                <h1>DRIVEWISE</h1>
+                <p>Cost Estimate for <span id="vehicle-name-header"></span></p>
+            </header>
+
+            <main class="results-main">
+                <!-- Total Cost Hero Section -->
+                <div class="total-cost-section">
+                    <div class="total-cost-card">
+                        <h2>Monthly Running Cost</h2>
+                        <p class="total-cost-amount" id="total-cost-hero">£0.00</p>
+                        <small>Fuel + Maintenance</small>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="results-grid">
+                    <!-- Left Column: Charts -->
+                    <div class="results-column charts-column">
+                        <div class="chart-card">
+                            <h3>Cost Breakdown</h3>
+                            <div class="chart-container">
+                                <canvas id="costChart"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <h3>Maintenance Details</h3>
+                            <div class="chart-container">
+                                <canvas id="maintenanceChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details -->
+                    <div class="results-column details-column">
+                        <!-- Cost Cards -->
+                        <div class="cost-cards-section">
+                            <div class="cost-card-small fuel-card-small">
+                                <span class="cost-label">Monthly Fuel Cost</span>
+                                <span class="cost-value" id="fuel-cost-detail">£0.00</span>
+                            </div>
+                            <div class="cost-card-small maintenance-card-small">
+                                <span class="cost-label">Monthly Maintenance</span>
+                                <span class="cost-value" id="maintenance-cost-detail">£0.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Info -->
+                        <div class="info-card">
+                            <h3>Vehicle Information</h3>
+                            <div class="info-details">
+                                <div class="info-row">
+                                    <span class="info-label">Make & Model</span>
+                                    <span class="info-value" id="vehicle-model">—</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Fuel Type</span>
+                                    <span class="info-value" id="vehicle-fuel">—</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">Engine Size</span>
+                                    <span class="info-value" id="vehicle-engine">—</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Maintenance Breakdown Details -->
+                        <div class="breakdown-details-card">
+                            <h3>Maintenance Reserve</h3>
+                            <div class="breakdown-items">
+                                <div class="breakdown-row">
+                                    <span>Annual Service</span>
+                                    <span id="breakdown-service">£0.00</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span>Tyres</span>
+                                    <span id="breakdown-tyres">£0.00</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span>Brakes</span>
+                                    <span id="breakdown-brakes">£0.00</span>
+                                </div>
+                                <div class="breakdown-row">
+                                    <span>Major Service</span>
+                                    <span id="breakdown-major">£0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Driving Profile -->
+                        <div class="profile-card">
+                            <h3>Your Driving Profile</h3>
+                            <div class="profile-items">
+                                <div class="profile-row">
+                                    <span>City Driving</span>
+                                    <span id="profile-city">0%</span>
+                                </div>
+                                <div class="profile-row">
+                                    <span>Driving Style</span>
+                                    <span id="profile-style">Normal</span>
+                                </div>
+                                <div class="profile-row">
+                                    <span>Short Trips</span>
+                                    <span id="profile-trips">Low</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Insight Section -->
+                <div class="insight-section">
+                    <h3>Analysis</h3>
+                    <p id="insight-text"></p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="export-btn" class="export-btn">Export Results</button>
+                    <button id="new-search-btn" class="new-search-btn">New Search</button>
+                </div>
+            </main>
+
+            <footer class="results-footer">
+                <p>DRIVEWISE | University Project</p>
+            </footer>
+        </div>
+    </section>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Calculating costs...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

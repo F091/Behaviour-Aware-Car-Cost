@@ -1,0 +1,731 @@
+/* frontend/style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --light-bg: #ecf0f1;
+    --card-bg: #ffffff;
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --border-color: #bdc3c7;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* Screen Management */
+.screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Landing Screen */
+#landing-screen {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.landing-content {
+    text-align: center;
+    color: white;
+    max-width: 500px;
+}
+
+.landing-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Car Animation */
+.car-animation {
+    margin-bottom: 3rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car {
+    width: 80px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.car::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    top: 25px;
+    left: 10px;
+}
+
+.car::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    top: 25px;
+    right: 10px;
+}
+
+.car.drive-animation {
+    animation: driveCar 1.5s ease-out forwards;
+}
+
+@keyframes driveCar {
+    0% {
+        transform: translateX(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Enter Button */
+.enter-btn {
+    padding: 1rem 2.5rem;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.enter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.enter-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Form Screen */
+#form-screen {
+    display: block;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+main {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--light-bg);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: var(--accent-color);
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: var(--accent-color);
+}
+
+small {
+    display: block;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin-top: 0.3rem;
+}
+
+/* Button Group (Driving Style) */
+.button-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.style-btn {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.style-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.style-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+/* Calculate Button */
+.calculate-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 1rem;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.calculate-btn:active {
+    transform: translateY(0);
+}
+
+/* Error Message */
+.error-message {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #ffe6e6;
+    border-left: 4px solid var(--accent-color);
+    color: var(--accent-color);
+    border-radius: 3px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Results Screen Layout */
+#results-screen {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.results-container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.results-header {
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+}
+
+.results-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.results-header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.results-main {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+/* Total Cost Hero Section */
+.total-cost-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.total-cost-card {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.total-cost-card h2 {
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.total-cost-amount {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+}
+
+.total-cost-card small {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Results Grid Layout */
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.results-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Chart Cards */
+.chart-card {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.chart-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+/* Cost Cards (Small) */
+.cost-cards-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.cost-card-small {
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fuel-card-small {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.maintenance-card-small {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.cost-label {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.cost-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Info Cards */
+.info-card,
+.breakdown-details-card,
+.profile-card {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.info-card h3,
+.breakdown-details-card h3,
+.profile-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-details,
+.breakdown-items,
+.profile-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.info-row,
+.breakdown-row,
+.profile-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.info-row:last-child,
+.breakdown-row:last-child,
+.profile-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Insight Section */
+.insight-section {
+    background: #fff3cd;
+    border-left: 4px solid var(--warning-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.insight-section h3 {
+    color: #856404;
+    margin-bottom: 0.75rem;
+}
+
+.insight-section p {
+    color: #856404;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.export-btn,
+.new-search-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.export-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.export-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+}
+
+.new-search-btn {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.new-search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.results-footer {
+    padding-bottom: 1rem;
+}
+
+/* Loading Spinner */
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .cost-cards-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1,
+    .results-header h1 {
+        font-size: 1.8rem;
+    }
+
+    main,
+    .results-main {
+        padding: 1.5rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .style-btn {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .total-cost-amount {
+        font-size: 2.5rem;
+    }
+
+    .chart-container {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.5rem;
+    }
+
+    header h1,
+    .results-header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p,
+    .results-header p {
+        font-size: 1rem;
+    }
+
+    main,
+    .results-main {
+        padding: 1rem;
+        border-radius: 5px;
+    }
+
+    .landing-content h1 {
+        font-size: 2rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .enter-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    .total-cost-amount {
+        font-size: 2rem;
+    }
+
+    .cost-value {
+        font-size: 1.5rem;
+    }
+
+    input,
+    select {
+        padding: 0.6rem;
+        font-size: 16px;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        height: 200px;
+    }
+}
