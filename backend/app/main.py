@@ -1,6 +1,7 @@
 # backend/app/main.py
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from backend.services.vehicle_service import get_vehicle
 from backend.services.cost_engine import estimate_monthly_fuel_cost
@@ -13,6 +14,17 @@ app = FastAPI(
     title="Car Cost System API",
     description="API for vehicle lookup and cost estimation",
     version="0.1.0"
+)
+
+
+# Enable CORS for development
+# This allows the frontend to make requests from different origins
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins for development
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
 )
 
 
@@ -308,7 +320,7 @@ def estimate_ownership_cost(
     """
     Estimate the total monthly running cost for a vehicle.
     
-    This endpoint calculates complete monthly ownership cost, including both
+    This endpoint calculates the complete monthly ownership cost, including both
     fuel and maintenance costs. It accounts for the vehicle's engine size, driving
     habits, and driving conditions. The response includes a breakdown of maintenance
     costs and an explanation of the behaviour factors affecting the estimate.
