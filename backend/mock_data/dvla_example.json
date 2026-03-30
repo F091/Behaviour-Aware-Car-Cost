@@ -30,5 +30,157 @@
     "year": 2024,
     "fuel_type": "Hybrid",
     "engine_capacity_cc": 1798
+  },
+  "IJ25IJK": {
+    "registration": "IJ25IJK",
+    "make": "Ford",
+    "model": "Fiesta",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1068
+  },
+  "KL26KLM": {
+    "registration": "KL26KLM",
+    "make": "Volkswagen",
+    "model": "Golf",
+    "year": 2023,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1968
+  },
+  "MN27MNO": {
+    "registration": "MN27MNO",
+    "make": "BMW",
+    "model": "3 Series",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1998
+  },
+  "OP28OPQ": {
+    "registration": "OP28OPQ",
+    "make": "Audi",
+    "model": "A6",
+    "year": 2021,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 2967
+  },
+  "QR29QRS": {
+    "registration": "QR29QRS",
+    "make": "Vauxhall",
+    "model": "Corsa",
+    "year": 2024,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1199
+  },
+  "ST30STU": {
+    "registration": "ST30STU",
+    "make": "Hyundai",
+    "model": "i10",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1074
+  },
+  "UV31UVW": {
+    "registration": "UV31UVW",
+    "make": "Mazda",
+    "model": "CX-5",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1997
+  },
+  "WX32WXY": {
+    "registration": "WX32WXY",
+    "make": "Mercedes-Benz",
+    "model": "C-Class",
+    "year": 2021,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1995
+  },
+  "YZ33YZA": {
+    "registration": "YZ33YZA",
+    "make": "Nissan",
+    "model": "Qashqai",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1496
+  },
+  "AB34ABC": {
+    "registration": "AB34ABC",
+    "make": "Skoda",
+    "model": "Octavia",
+    "year": 2022,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1968
+  },
+  "CD35CDE": {
+    "registration": "CD35CDE",
+    "make": "Renault",
+    "model": "Clio",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1197
+  },
+  "EF36EFG": {
+    "registration": "EF36EFG",
+    "make": "Toyota",
+    "model": "RAV4",
+    "year": 2021,
+    "fuel_type": "Hybrid",
+    "engine_capacity_cc": 2494
+  },
+  "GH37GHI": {
+    "registration": "GH37GHI",
+    "make": "Peugeot",
+    "model": "308",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1598
+  },
+  "IJ38IJK": {
+    "registration": "IJ38IJK",
+    "make": "Citroen",
+    "model": "C3",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1199
+  },
+  "KL39KLM": {
+    "registration": "KL39KLM",
+    "make": "Volkswagen",
+    "model": "Passat",
+    "year": 2021,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1968
+  },
+  "MN40MNO": {
+    "registration": "MN40MNO",
+    "make": "Audi",
+    "model": "A4",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1968
+  },
+  "OP41OPQ": {
+    "registration": "OP41OPQ",
+    "make": "BMW",
+    "model": "5 Series",
+    "year": 2021,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 2993
+  },
+  "QR42QRS": {
+    "registration": "QR42QRS",
+    "make": "Lexus",
+    "model": "RX",
+    "year": 2020,
+    "fuel_type": "Hybrid",
+    "engine_capacity_cc": 3456
+  },
+  "ST43STU": {
+    "registration": "ST43STU",
+    "make": "Kia",
+    "model": "Sportage",
+    "year": 2023,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1896
   }
 }
