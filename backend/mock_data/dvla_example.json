@@ -182,5 +182,237 @@
     "year": 2023,
     "fuel_type": "Diesel",
     "engine_capacity_cc": 1896
+  },
+  "UV44UVW": {
+    "registration": "UV44UVW",
+    "make": "Porsche",
+    "model": "911",
+    "year": 2021,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 3996
+  },
+  "WX45WXY": {
+    "registration": "WX45WXY",
+    "make": "Jaguar",
+    "model": "XE",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1997
+  },
+  "YZ46YZA": {
+    "registration": "YZ46YZA",
+    "make": "Range Rover",
+    "model": "Sport",
+    "year": 2021,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 2993
+  },
+  "AB47ABC": {
+    "registration": "AB47ABC",
+    "make": "Tesla",
+    "model": "Model 3",
+    "year": 2023,
+    "fuel_type": "Hybrid",
+    "engine_capacity_cc": 0
+  },
+  "CD48CDE": {
+    "registration": "CD48CDE",
+    "make": "Lamborghini",
+    "model": "Urus",
+    "year": 2020,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 4016
+  },
+  "EF49EFG": {
+    "registration": "EF49EFG",
+    "make": "Mercedes-Benz",
+    "model": "S-Class",
+    "year": 2021,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 3982
+  },
+  "GH50GHI": {
+    "registration": "GH50GHI",
+    "make": "Rolls-Royce",
+    "model": "Ghost",
+    "year": 2019,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 6592
+  },
+  "IJ51IJK": {
+    "registration": "IJ51IJK",
+    "make": "Bentley",
+    "model": "Continental",
+    "year": 2020,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 6000
+  },
+  "KL52KLM": {
+    "registration": "KL52KLM",
+    "make": "Subaru",
+    "model": "Outback",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 2496
+  },
+  "MN53MNO": {
+    "registration": "MN53MNO",
+    "make": "Dacia",
+    "model": "Sandero",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1197
+  },
+  "OP54OPQ": {
+    "registration": "OP54OPQ",
+    "make": "MINI",
+    "model": "Cooper",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1499
+  },
+  "QR55QRS": {
+    "registration": "QR55QRS",
+    "make": "Fiat",
+    "model": "500X",
+    "year": 2022,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1598
+  },
+  "ST56STU": {
+    "registration": "ST56STU",
+    "make": "Volvo",
+    "model": "XC90",
+    "year": 2021,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 2401
+  },
+  "UV57UVW": {
+    "registration": "UV57UVW",
+    "make": "Jeep",
+    "model": "Wrangler",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 2000
+  },
+  "WX58WXY": {
+    "registration": "WX58WXY",
+    "make": "Alfa Romeo",
+    "model": "Giulia",
+    "year": 2021,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 2000
+  },
+  "YZ59YZA": {
+    "registration": "YZ59YZA",
+    "make": "Land Rover",
+    "model": "Discovery",
+    "year": 2020,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 2997
+  },
+  "AB60ABC": {
+    "registration": "AB60ABC",
+    "make": "Volkswagen",
+    "model": "ID.4",
+    "year": 2023,
+    "fuel_type": "Hybrid",
+    "engine_capacity_cc": 0
+  },
+  "CD61CDE": {
+    "registration": "CD61CDE",
+    "make": "Ferrari",
+    "model": "F8 Tributo",
+    "year": 2020,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 3902
+  },
+  "EF62EFG": {
+    "registration": "EF62EFG",
+    "make": "Maserati",
+    "model": "Quattroporte",
+    "year": 2021,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 3799
+  },
+  "GH63GHI": {
+    "registration": "GH63GHI",
+    "make": "Infiniti",
+    "model": "QX60",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 3498
+  },
+  "IJ64IJK": {
+    "registration": "IJ64IJK",
+    "make": "Lotus",
+    "model": "Emira",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 2011
+  },
+  "KL65KLM": {
+    "registration": "KL65KLM",
+    "make": "Aston Martin",
+    "model": "DBX",
+    "year": 2021,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 3996
+  },
+  "MN66MNO": {
+    "registration": "MN66MNO",
+    "make": "Bugatti",
+    "model": "Bolide",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 8000
+  },
+  "OP67OPQ": {
+    "registration": "OP67OPQ",
+    "make": "Chevrolet",
+    "model": "Corvette",
+    "year": 2020,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 6162
+  },
+  "QR68QRS": {
+    "registration": "QR68QRS",
+    "make": "Toyota",
+    "model": "Yaris",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1496
+  },
+  "ST69STU": {
+    "registration": "ST69STU",
+    "make": "Peugeot",
+    "model": "5008",
+    "year": 2022,
+    "fuel_type": "Diesel",
+    "engine_capacity_cc": 1997
+  },
+  "UV70UVW": {
+    "registration": "UV70UVW",
+    "make": "Hyundai",
+    "model": "Ioniq",
+    "year": 2023,
+    "fuel_type": "Hybrid",
+    "engine_capacity_cc": 1598
+  },
+  "WX71WXY": {
+    "registration": "WX71WXY",
+    "make": "Mitsubishi",
+    "model": "Outlander",
+    "year": 2022,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 2360
+  },
+  "YZ72YZA": {
+    "registration": "YZ72YZA",
+    "make": "Suzuki",
+    "model": "Vitara",
+    "year": 2023,
+    "fuel_type": "Petrol",
+    "engine_capacity_cc": 1598
   }
 }
