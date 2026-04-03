@@ -36,7 +36,7 @@ def get_vehicle_from_mock(registration: str) -> Vehicle:
     # Get the vehicle data
     vehicle_data = mock_data[registration_clean]
     
-    # Normalize fuel type to lowercase
+    # Normalise fuel type to lowercase
     if 'fuel_type' in vehicle_data:
         vehicle_data['fuel_type'] = vehicle_data['fuel_type'].lower()
     
