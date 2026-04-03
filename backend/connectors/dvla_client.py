@@ -71,7 +71,7 @@ def get_vehicle(registration: str) -> Vehicle:
         # If no API key is set, fall back to mock data
         return get_vehicle_from_mock(registration)
     
-    # Normalize the registration: remove whitespace and convert to uppercase
+    # Normalise the registration: remove whitespace and convert to uppercase
     registration_clean = registration.upper().strip()
     
     # DVLA API endpoint
