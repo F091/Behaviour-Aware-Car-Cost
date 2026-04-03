@@ -46,7 +46,7 @@ def get_engine_band(fuel_type: str, engine_capacity_cc: int) -> str:
         else:
             return "3000+"
     
-    # If fuel type is not recognized, raise an error
+    # If fuel type is not recognised, raise an error
     raise ValueError(f"Unknown fuel type: {fuel_type}")
 
 
