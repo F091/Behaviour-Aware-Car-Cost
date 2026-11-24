@@ -2,7 +2,7 @@
 
 ## Overview
 
-DRIVEWISE is a web application that estimates monthly car ownership costs based on vehicle details and driving habits. The system uses the DVLA API to look up real vehicle data and applies behaviour-aware multipliers to calculate realistic fuel and maintenance costs.
+DRIVEWISE is a web application that estimates monthly car ownership costs based on vehicle details and driving habits. The system uses the DVLA API to look up real vehicle data and applies behaviour-aware multipliers to calculate realistic fuel and maintenance costs. Functional, however working on further algorithm implementation to increase accuracy.
 
 ### How it Works
 
